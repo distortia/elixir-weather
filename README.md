@@ -1,20 +1,9 @@
 # Weather
 
-**TODO: Add description**
+Simple command line weather app written in elixir.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
-  1. Add weather to your list of dependencies in `mix.exs`:
-
-        def deps do
-          [{:weather, "~> 0.0.1"}]
-        end
-
-  2. Ensure weather is started before your application:
-
-        def application do
-          [applications: [:weather]]
-        end
-
+- run `mix deps.get` to get the dependencies
+- run `mix escript.build` to compile the app
+- run `./weather` to run the app
