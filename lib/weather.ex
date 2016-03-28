@@ -12,6 +12,7 @@ defmodule Weather do
 	end
 
 	def weather(location) do
+		IO.puts "location: #{location}"
 		{status, list} = JSON.decode request_weather(location).body
 		if status == :ok do
 			currently(list)
@@ -23,13 +24,10 @@ defmodule Weather do
 	def location(address) do
 		{status, list} = JSON.decode request_coordinates(address).body
 		if status == :ok do
-				IO.puts list
-				results = list["results"]
-				IO.puts results
-
-				# latitude = list["results"]["geometry"]["location"]["lat"]
-				# longitude = list["results"]["geometry"]["location"]["lng"]
-				# IO.puts "#{latitude},#{longitude}"
+				results = list["results"] |> List.first
+				latitude = results["geometry"]["location"]["lat"]
+				longitude = results["geometry"]["location"]["lng"]
+				"#{latitude},#{longitude}"
 			else
 				IO.puts "Error processing: #{status} code returned"
 		end
