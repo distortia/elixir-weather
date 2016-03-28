@@ -2,7 +2,7 @@ defmodule Weather do
 	def main(address) do
 		# https://maps.googleapis.com/maps/api/geocode/json?address=1600+5233+jameson+drive+columbus+oh&key=AIzaSyDiglohQeePIsYHgHSLNqWeFhLg_xqxnV0
 		# https://api.forecast.io/forecast/APIKEY/LATITUDE,LONGITUDE
-		address = parse_address(address)
+		address = parse_address(to_string address)
 		coordinates = location(address)
 		weather(coordinates)
 	end
